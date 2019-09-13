@@ -13,8 +13,8 @@
           <p class="card-text">{{restaurant.description}}</p>
           <router-link
             class="btn btn-primary mr-2"
-            :to="{ name: 'restaurant', params: {id: restaurant.id}}"
-          >>Show</router-link>
+            :to="{ name: 'restaurant', params: {id: restaurant.id}, path: 'dashboard'}"
+          >Show</router-link>
 
           <button
             type="button"

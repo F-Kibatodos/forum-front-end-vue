@@ -4,6 +4,7 @@ import NotFound from './views/NotFound.vue'
 import SignIn from './views/SignIn.vue'
 import SignUp from './views/SignUp.vue'
 import Restaurants from './views/Restaurants.vue'
+import RestaurantDashboard from './views/RestaurantDashboard'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ export default new Router({
       path: '/restaurants/:id',
       name: 'restaurant',
       component: () => import('./views/Restaurant.vue')
+    },
+    {
+      path: '/restaurants/:id/dashboard',
+      name: 'restaurant-dashboard',
+      component: () => import('./views/RestaurantDashboard.vue')
     },
     {
       path: '/users/top',
