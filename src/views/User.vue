@@ -2,12 +2,22 @@
   <div class="album py-5 bg-light">
     <div class="container">
       <UserProfileCard :user="user" />
+      <div class="row">
+      <div class="col-md-4">
+        <UserFollowingsCard :followings="followings" :user="user" />
+      </div>
+      <div class="col-md-8">
+        
+      </div>
+    </div>
     </div>
   </div>
 </template>
 
 <script>
 import UserProfileCard from "./../components/UserProfileCard";
+import UserFollowingsCard from "./../components/UserFollowingsCard"
+import { SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG } from 'constants';
 
 const dummyData = {
   'profile': {
@@ -1186,7 +1196,8 @@ const dummyData = {
 
 export default {
   components: {
-    UserProfileCard
+    UserProfileCard,
+    UserFollowingsCard
   },
   data() {
     return {
@@ -1198,7 +1209,8 @@ export default {
         favoritedRestaurants: 0,
         followers: 0,
         followings: 0
-      }
+      },
+      followings: []
     }
   },
   created() {
@@ -1215,7 +1227,8 @@ export default {
         favoritedRestaurants: dummyData.profile.FavoritedRestaurants.length,
         followers: dummyData.profile.Followers.length,
         followings: dummyData.profile.Followings.length
-      }
+      },
+      this.followings = dummyData.profile.Followings
     }
   }
 };
