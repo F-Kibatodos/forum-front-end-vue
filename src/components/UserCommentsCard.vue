@@ -4,9 +4,14 @@
       <strong>{{user.commentedRestaurants}}</strong> 已評論餐廳
     </div>
     <div class="card-body">
-      <a v-for="comment in comments" :key="comment.id" href="/restaurants/7" class="mr-1">
+      <router-link
+        v-for="comment in comments"
+        :key="comment.id"
+        :to="{name: 'restaurant', params: { id: comment.Restaurant.id }}"
+        class="mr-1"
+      >
         <img :src="comment.Restaurant.image" width="60" height="60" class="avatar" />
-      </a>
+      </router-link>
     </div>
   </div>
 </template>

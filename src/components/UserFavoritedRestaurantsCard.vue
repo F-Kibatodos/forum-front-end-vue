@@ -4,9 +4,14 @@
       <strong>{{user.favoritedRestaurants}}</strong> 已評論餐廳
     </div>
     <div class="card-body">
-      <a v-for="favorited in favoriteds" :key="favorited.id" href="/restaurants/7" class="mr-1">
+      <router-link
+        v-for="favorited in favoriteds"
+        :key="favorited.id"
+        :to="{name: 'restaurant', params: { id: favorited.id }}"
+        class="mr-1"
+      >
         <img :src="favorited.image" width="60" height="60" class="avatar" />
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
