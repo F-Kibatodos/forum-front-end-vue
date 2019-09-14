@@ -5,10 +5,11 @@
       <div class="row">
       <div class="col-md-4">
         <UserFollowingsCard :followings="followings" :user="user" />
-        <UserFollowersCard :followers="followers" :user="user" class="mt-2" />
+        <br>
+        <UserFollowersCard :followers="followers" :user="user" />
       </div>
       <div class="col-md-8">
-        
+        <UserCommentsCard :comments="comments" :user="user" />
       </div>
     </div>
     </div>
@@ -19,6 +20,7 @@
 import UserProfileCard from "./../components/UserProfileCard";
 import UserFollowingsCard from "./../components/UserFollowingsCard"
 import UserFollowersCard from './../components/UserFollowersCard';
+import UserCommentsCard from './../components/UserCommentsCard'
 
 
 const dummyData = {
@@ -1200,7 +1202,8 @@ export default {
   components: {
     UserProfileCard,
     UserFollowingsCard,
-    UserFollowersCard
+    UserFollowersCard,
+    UserCommentsCard
   },
   data() {
     return {
@@ -1214,7 +1217,8 @@ export default {
         followings: 0
       },
       followings: [],
-      followers: []
+      followers: [],
+      comments: []
     }
   },
   created() {
@@ -1234,6 +1238,7 @@ export default {
       },
       this.followings = dummyData.profile.Followings
       this.followers = dummyData.profile.Followers
+      this.comments = dummyData.profile.Comments
     }
   }
 };
