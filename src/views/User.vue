@@ -5,6 +5,7 @@
       <div class="row">
       <div class="col-md-4">
         <UserFollowingsCard :followings="followings" :user="user" />
+        <UserFollowersCard :followers="followers" :user="user" class="mt-2" />
       </div>
       <div class="col-md-8">
         
@@ -17,7 +18,8 @@
 <script>
 import UserProfileCard from "./../components/UserProfileCard";
 import UserFollowingsCard from "./../components/UserFollowingsCard"
-import { SSL_OP_NETSCAPE_DEMO_CIPHER_CHANGE_BUG } from 'constants';
+import UserFollowersCard from './../components/UserFollowersCard';
+
 
 const dummyData = {
   'profile': {
@@ -1197,7 +1199,8 @@ const dummyData = {
 export default {
   components: {
     UserProfileCard,
-    UserFollowingsCard
+    UserFollowingsCard,
+    UserFollowersCard
   },
   data() {
     return {
@@ -1210,7 +1213,8 @@ export default {
         followers: 0,
         followings: 0
       },
-      followings: []
+      followings: [],
+      followers: []
     }
   },
   created() {
@@ -1229,6 +1233,7 @@ export default {
         followings: dummyData.profile.Followings.length
       },
       this.followings = dummyData.profile.Followings
+      this.followers = dummyData.profile.Followers
     }
   }
 };
