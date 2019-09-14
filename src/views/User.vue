@@ -1,7 +1,7 @@
 <template>
   <div class="album py-5 bg-light">
     <div class="container">
-      <UserProfileCard :user="user" />
+      <UserProfileCard :user="user" :initial-is-followed="isFollowed" :is-current-user="currentUser.id === user.id" />
       <div class="row">
       <div class="col-md-4">
         <UserFollowingsCard :followings="followings" :user="user" />
@@ -1201,6 +1201,17 @@ const dummyData = {
   'isFollowed': false
 }
 
+const dummyUser = {
+  currentUser: {
+    id: 1,
+    name: '管理者',
+    email: 'root@example.com',
+    image: 'https://i.pravatar.cc/300',
+    isAdmin: true
+  },
+  isAuthenticated: true
+}
+
 export default {
   components: {
     UserProfileCard,
@@ -1223,7 +1234,9 @@ export default {
       followings: [],
       followers: [],
       comments: [],
-      favoriteds: []
+      favoriteds: [],
+      isFollowed: false,
+      currentUser: dummyUser.currentUser
     }
   },
   created() {
@@ -1233,6 +1246,8 @@ export default {
   methods: {
     fetchUser(userId) {
       this.user = {
+        ...this.user,
+        id: dummyData.profile.id,
         name: dummyData.profile.name,
         email: dummyData.profile.email,
         image: dummyData.profile.image,
@@ -1245,6 +1260,7 @@ export default {
       this.followers = dummyData.profile.Followers
       this.comments = dummyData.profile.Comments
       this.favoriteds = dummyData.profile.FavoritedRestaurants
+      this.isFollowed = dummyData.isFollowed
     }
   }
 };

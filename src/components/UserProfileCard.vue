@@ -22,11 +22,23 @@
               <strong>{{user.followers}}</strong> followers (追隨者)
             </li>
           </ul>
-          <p>
-            <a href="/users/1/edit">
-              <button type="submit" class="btn btn-primary">edit</button>
-            </a>
-          </p>
+          <template v-if="isCurrentUser">
+            <a href="#" class="btn btn-primary">Edit</a>
+          </template>
+          <template v-else>
+            <button
+              v-if="isFollowed"
+              type="button"
+              class="btn btn-danger"
+              @click.stop.prevent="deleteFollowing(user.id)"
+            >取消追蹤</button>
+            <button
+              v-else
+              type="button"
+              class="btn btn-primary"
+              @click.stop.prevent="addFollowing(user.id)"
+            >追蹤</button>
+          </template>
         </div>
       </div>
     </div>
@@ -39,10 +51,28 @@ export default {
     user: {
       type: Object,
       required: true
+    },
+    isCurrentUser: {
+      type: Boolean,
+      required: true
+    },
+    initialIsFollowed: {
+      type: Boolean,
+      required: true
     }
   },
   data() {
-    return {};
+    return {
+      isFollowed: this.initialIsFollowed
+    };
+  },
+  methods: {
+    addFollowing() {
+      this.isFollowed = true;
+    },
+    deleteFollowing() {
+      this.isFollowed = false;
+    }
   }
 };
 </script>
