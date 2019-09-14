@@ -10,6 +10,8 @@
       </div>
       <div class="col-md-8">
         <UserCommentsCard :comments="comments" :user="user" />
+        <br>
+        <UserFavoritedRestaurantsCard :favoriteds="favoriteds" :user="user" />
       </div>
     </div>
     </div>
@@ -21,6 +23,7 @@ import UserProfileCard from "./../components/UserProfileCard";
 import UserFollowingsCard from "./../components/UserFollowingsCard"
 import UserFollowersCard from './../components/UserFollowersCard';
 import UserCommentsCard from './../components/UserCommentsCard'
+import UserFavoritedRestaurantsCard from './../components/UserFavoritedRestaurantsCard'
 
 
 const dummyData = {
@@ -1203,7 +1206,8 @@ export default {
     UserProfileCard,
     UserFollowingsCard,
     UserFollowersCard,
-    UserCommentsCard
+    UserCommentsCard,
+    UserFavoritedRestaurantsCard
   },
   data() {
     return {
@@ -1218,7 +1222,8 @@ export default {
       },
       followings: [],
       followers: [],
-      comments: []
+      comments: [],
+      favoriteds: []
     }
   },
   created() {
@@ -1239,6 +1244,7 @@ export default {
       this.followings = dummyData.profile.Followings
       this.followers = dummyData.profile.Followers
       this.comments = dummyData.profile.Comments
+      this.favoriteds = dummyData.profile.FavoritedRestaurants
     }
   }
 };
