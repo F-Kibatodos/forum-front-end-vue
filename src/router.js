@@ -4,7 +4,6 @@ import NotFound from './views/NotFound.vue'
 import SignIn from './views/SignIn.vue'
 import SignUp from './views/SignUp.vue'
 import Restaurants from './views/Restaurants.vue'
-import RestaurantDashboard from './views/RestaurantDashboard'
 
 Vue.use(Router)
 
@@ -14,7 +13,7 @@ export default new Router({
     {
       path: '/',
       name: 'root',
-      redirect: '/restaurants'
+      redirect: '/signin'
     },
     {
       path: '/signin',
