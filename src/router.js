@@ -52,6 +52,11 @@ export default new Router({
       component: () => import('./views/RestaurantDashboard.vue')
     },
     {
+      path: '/admin/users',
+      name: 'users',
+      component: () => import('./views/AdminUsers.vue')
+    },
+    {
       path: '/users/top',
       name: 'users-top',
       component: () => import('./views/UsersTop.vue')
@@ -90,6 +95,11 @@ export default new Router({
       path: '/admin/restaurants/:id/edit',
       name: 'admin-restaurant-edit',
       component: () => import('./views/AdminRestaurantEdit.vue')
+    },
+    {
+      path: '/admin/categories',
+      name: 'admin-categories',
+      component: () => import('./views/AdminCategories.vue')
     },
     {
       path: '*',
