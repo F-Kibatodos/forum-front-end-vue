@@ -123,7 +123,6 @@ export default {
           type: "error",
           title: "無法對這間餐廳按喜歡，請稍後再試"
         });
-        console.log(error);
       }
     },
     async deleteLike(restaurantId) {

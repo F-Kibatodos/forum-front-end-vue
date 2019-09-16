@@ -7,5 +7,10 @@ export default {
     return apiHelper.get(`/restaurants?${searchParams.toString()}`, {
       headers: { Authorization: `Bearer ${getToken()}` }
     })
+  },
+  getTopRestaurants() {
+    return apiHelper.get('/restaurants/top', {
+      headers: { Authorization: `Bearer ${getToken()}` }
+    })
   }
 }
