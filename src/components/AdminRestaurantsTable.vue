@@ -968,7 +968,7 @@ export default {
     },
     async deleteRestaurant (restaurantId) {
       try {
-        const { data, statusText } = await adminAPI.restaurants.delete(restaurantId)
+        const { data, statusText } = await adminAPI.restaurants.delete({restaurantId})
 
         if (statusText !== 'OK' || data.status !== 'success') {
           throw new Error(statusText)
