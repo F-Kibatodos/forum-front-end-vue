@@ -38,6 +38,9 @@
 </template>
 <script>
 import { emptyImageFilter } from "./../utils/mixins";
+import adminAPI from "./../apis/admin";
+import { Toast } from "./../utils/helpers";
+
 const dummyData = {
   restaurant: {
     id: 2,

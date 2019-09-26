@@ -127,7 +127,9 @@ export default {
     },
     async deleteLike(restaurantId) {
       try {
-        const { data, statusText } = usersAPI.deleteLike({ restaurantId });
+        const { data, statusText } = await usersAPI.deleteLike({
+          restaurantId
+        });
 
         if (statusText !== "OK" || data.status !== "success") {
           throw new Error(statusText);
@@ -138,6 +140,7 @@ export default {
           isLiked: false
         };
       } catch (error) {
+        console.log(error);
         Toast.fire({
           type: "error",
           title: "無法對這間餐廳按不喜歡，請稍後再試"
