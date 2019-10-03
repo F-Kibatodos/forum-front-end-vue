@@ -140,7 +140,6 @@ export default {
           isLiked: false
         };
       } catch (error) {
-        console.log(error);
         Toast.fire({
           type: "error",
           title: "無法對這間餐廳按不喜歡，請稍後再試"

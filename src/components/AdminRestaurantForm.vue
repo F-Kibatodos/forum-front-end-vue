@@ -167,7 +167,6 @@ export default {
         this.categories = data.categories;
         this.isLoading = false;
       } catch (error) {
-        console.log(error);
         this.isLoading = false;
         Toast.fire({
           type: "error",
